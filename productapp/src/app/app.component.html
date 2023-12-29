@@ -1,0 +1,35 @@
+ <nav class="p-3">
+    <ul class="nav nav-pills">
+        <!--on parcours la liste des actions dans app.components avec une boucle for
+        
+        Proprety Binding [class]="..." : syntaxe Angular permettant de lier dynamiquement des classes CSS à 
+        un élément HTML en fonction de la valeur d'une expression.
+        
+    
+        Si action est égal à currentAction, la classe CSS sera 'btn btn-success ms-1'.
+        Sinon, la classe CSS sera 'btn btn-outline-success ms-1'.
+        -->
+        <li *ngFor="let action of actions">
+            <button 
+                      
+              
+              (click)="setCurrentAction(action)"
+              routerLink="{{action.route}}"
+
+              [class]="action==currentAction
+              ?'btn btn-success ms-1' : 'btn btn-outline-success ms-1' ">
+            
+              {{action.title}}
+              <i class="bi bi-{{action.icon}}"></i>
+             
+            </button>
+
+        </li>
+        
+
+
+    </ul>
+</nav>
+<router-outlet>
+
+</router-outlet>
